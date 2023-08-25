@@ -11,13 +11,13 @@ function DOMLoad() {
 function setupBoards() {
   const playerBoards = document.querySelectorAll('.gameboard');
   for (let n = 0; n < 2; n++){   // setup each board
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) { // setup each row
       const row = document.createElement('div');
-      row.classList.add('row');     // setup each row
+      row.classList.add('row');
       row.setAttribute('data-x', i);
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < 10; j++) { // setup each cell
         const cell = document. createElement('div');
-        cell.classList.add('cell'); // setup each cell
+        cell.classList.add('cell');
         cell.setAttribute('data-y', j);
         if (n == 0) {
           if (player1.board.board[i][j].hasShip) {

@@ -53,14 +53,28 @@ export default class Gameboard {
     //Check if necessary spots are in gameboard and available
     if (isVertical) {
       for (let i = 0; i < ship.length; i++) {
-        if (x + i >= this.board.length || this.board[x + i][y].hasShip) {
-          return false;
+        if (x + i >= this.board.length) return false;
+        for (let j = -1; j < 2; j++) {
+          for (let n = -1; n < 2; n++) {
+            const newX = x + i + j;
+            const newY = y + n;
+            if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10) {
+              if (this.board[newX][newY].hasShip) return false;
+            }
+          }
         }
       }  
     } else {
       for (let i = 0; i < ship.length; i++) {
-        if (y + i >= this.board.length || this.board[x][y + i].hasShip) {
-          return false;
+        if (y + i >= this.board.length) return false;
+        for (let j = -1; j < 2; j++) {
+          for (let n = -1; n < 2; n++) {
+            const newX = x + j;
+            const newY = y + i + n;
+            if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10) {
+              if (this.board[newX][newY].hasShip) return false;
+            }
+          }
         }
       }
     }
