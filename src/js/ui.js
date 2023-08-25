@@ -2,6 +2,7 @@ import {Player} from './player.js';
 
 const player1 = new Player('Player1');
 const player2 = new Player('Player2');
+let player1Turn = true;
 
 function DOMLoad() {
   setupBoards();
@@ -41,8 +42,22 @@ function setupClick() {
     each.addEventListener('click',(e) => {
       const y = e.target.dataset.y;
       const x = e.target.parentNode.dataset.x;
+      e.target.classList.add('shot');
+      if (player1Turn) {
+        player1.attack(x, y, player2.board);
+        player2RandomAttack();
+      } else {
+        player2.attack(x, y, player1.board);
+      }
+      // player1Turn = player1Turn ? false : true;
     })
   }
+}
+
+function player2RandomAttack() {
+  const coords = player2.randomAttack(player1.board);
+  const cell = document.querySelector(`.left > .row[data-x="${coords[0]}"] > .cell[data-y="${coords[1]}"]`);
+  cell.classList.add('shot');
 }
 
 export {DOMLoad};

@@ -4,9 +4,10 @@ class Player {
   constructor(name) {
     this.name = name;
     this.board = new Gameboard();
+    this.turn = false;
   }
   attack(x, y, gameboard) {
-    if (playerGameboard.board[x][y].isShot) return false;
+    if (gameboard.board[x][y].isShot) return false;
     gameboard.receiveAttack(x, y);
   }
   randomAttack(gameboard) {
@@ -17,6 +18,7 @@ class Player {
       y = Math.floor(Math.random() * 10);
     } while (gameboard.board[x][y].isShot);
     gameboard.receiveAttack(x, y);
+    return [x, y];
   }
 }
 

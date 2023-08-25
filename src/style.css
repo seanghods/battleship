@@ -86,3 +86,15 @@ a {
   background: skyblue;
   cursor: pointer;
 }
+
+.shot {
+  background: grey;
+}
+
+.shot.withShip {
+  background: red;
+}
+
+.shot.withShipEnemy {
+  background: red;
+}
