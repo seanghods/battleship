@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.text {
+  text-align: center;
+  padding: 25px;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border-bottom: 2px solid lightgrey;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-top: 2px solid lightgrey;
+}
+.footer img {
+  height: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* gameboards */
+
+.gameboards{
+  flex: 1;
+  display: flex;
+}
+
+.area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.gameboard {
+  width: 20vw;
+  height: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 950px) {
+  .gameboard {
+      width: 40vw;
+      height: 40vw;
+}
+}
+
+@media screen and (max-width: 500px) {
+  .gameboards {
+    flex-direction: column;
+  }
+  .gameboard {
+      width: 40vw;
+      height: 40vw;
+}
+}
+
+.row {
+  flex: 1;
+  width: 100%;
+  display: flex;
+}
+
+.withShip {
+  background: black;
+}
+
+.cell {
+  flex: 1;
+  border: 1px solid black;
+}
+
+.cell:hover {
+  background: skyblue;
+  cursor: pointer;
+}
+
+.cell.miss {
+  background: grey;
+}
+
+.cell.hit {
+  background: red;
+}
+
+.cell.sunk {
+  background: darkred;
+}
+
+.gameover-modal {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  border: 2px solid black;
+  padding: 2% 8%;
+  border-radius: 25px;
+  box-shadow: 10px 10px 10px darkred;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  transition: transform 1s;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transition: 1s ease-in-out;
+  display: flex;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+  transition: 1s ease-in-out;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 10px;
+}
