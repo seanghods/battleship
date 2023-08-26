@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,118,1) 35%, rgba(0,212,255,1) 100%);
+  font-family: 'Tilt Prism', cursive;
 }
 
 .container{
@@ -27,8 +29,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px;
+  padding: 20px;
   border-bottom: 2px solid lightgrey;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(7,60,146,1) 0%, rgba(9,26,121,1) 0%, rgba(0,212,255,1) 100%);
+  box-shadow: 10px 10px 10px skyblue;
 }
 
 .header h1 {
@@ -55,6 +59,12 @@ a {
   font-weight: bold;
 }
 
+/* message */
+
+h3 {
+  font-size: 30px;
+}
+
 /* gameboards */
 
 .gameboards{
@@ -65,7 +75,8 @@ a {
 .area {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gameboard {
@@ -97,6 +108,7 @@ a {
   flex: 1;
   width: 100%;
   display: flex;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(7,60,146,1) 0%, rgba(0,99,1,1) 0%, rgba(45,176,0,1) 100%, rgba(0,212,255,1) 100%);
 }
 
 .withShip {
@@ -110,11 +122,11 @@ a {
 
 .cell:hover {
   background: skyblue;
-  cursor: pointer;
+  cursor: crosshair;
 }
 
 .cell.miss {
-  background: grey;
+  background: whitesmoke;
 }
 
 .cell.hit {
@@ -124,6 +136,8 @@ a {
 .cell.sunk {
   background: darkred;
 }
+
+/* modal */
 
 .gameover-modal {
   position: absolute;
