@@ -82,12 +82,15 @@ export default class Gameboard {
   }
   receiveAttack(x, y) {
     this.board[x][y].isShot = true;
-    if (this.board[x][y].hasShip == true) {
+    if (this.board[x][y].hasShip) {
       this.board[x][y].hasShip.hit();
       if (this.board[x][y].hasShip.sunk == true) {
         this.isGameOver();
+        return 'sunk';
       }
+      return 'hit';
     }
+    return 'miss';
   }
   isGameOver() {
     for (let i = 0; i < this.board.length; i++) {
@@ -95,7 +98,10 @@ export default class Gameboard {
         if (this.board[i][j].hasShip && this.board[i][j].hasShip.isSunk == false) return false;
       }
     }
-    return true;
+  }
+  reset() {
+    this.board = [];
+    this.init();
   }
 }
 

@@ -8,7 +8,7 @@ class Player {
   }
   attack(x, y, gameboard) {
     if (gameboard.board[x][y].isShot) return false;
-    gameboard.receiveAttack(x, y);
+    return gameboard.receiveAttack(x, y);
   }
   randomAttack(gameboard) {
     let x;
@@ -17,8 +17,7 @@ class Player {
       x = Math.floor(Math.random() * 10);
       y = Math.floor(Math.random() * 10);
     } while (gameboard.board[x][y].isShot);
-    gameboard.receiveAttack(x, y);
-    return [x, y];
+    return [x, y, gameboard.receiveAttack(x, y)];
   }
 }
 

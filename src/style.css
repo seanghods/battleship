@@ -91,10 +91,10 @@ a {
   background: grey;
 }
 
-.shot.withShip {
+.shot.withShip, .shot.withShipEnemy {
   background: red;
 }
 
-.shot.withShipEnemy {
-  background: red;
+.shot.withShip.sunk, .shot.withShipEnemy.sunk {
+  background: darkred;
 }

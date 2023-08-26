@@ -4,6 +4,7 @@ class Ship {
     this.length = length;
     this.timesHit = 0;
     this.sunk = false;
+    this.domTargets = [];
   }
   hit() {
     this.timesHit++;
