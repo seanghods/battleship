@@ -45,6 +45,7 @@ class UI {
   
   static clickAttack(e) {
     if (!isGameOver) {
+      const attackText = document.querySelector('.shot-msg.r');
       if (e.target.classList.contains('shot')) return; // Don't allow clicks on shot spaces
       if (e.target.parentNode.parentNode.classList.contains('right')) { // Only allow clicks on the right (opponent) gameboard
         const y = e.target.dataset.y;
@@ -53,10 +54,14 @@ class UI {
           let attack = player1.attack(x, y, player2.board);
           if (attack == 'miss') {
             e.target.classList.add('miss');
+            attackText.innerHTML = 'Miss';
+            attackText.style.color = 'white';
             this.player2RandomAttack(e);
           }
           if (attack == 'hit') {
             e.target.classList.add('hit');
+            attackText.innerHTML = 'Hit';
+            attackText.style.color = 'red';
             player2.board.board[x][y].hasShip.domTargets.push(e.target);
           } else if (attack == 'sunk') {
             e.target.classList.add('hit');
@@ -64,6 +69,9 @@ class UI {
             player2.board.board[x][y].hasShip.domTargets.forEach(e => {
               e.classList.add('sunk');
             })
+            attackText.innerHTML = 'Sunk';
+            attackText.style.color = 'darkred';
+            attackText
             this.showSunkMessage(player1, player2.board.board[x][y].hasShip.name)
             if (player2.board.isGameOver()) {
               return this.showGameOver(player2)
@@ -78,6 +86,7 @@ class UI {
   }
 
   static player2RandomAttack(e) {
+    const attackText = document.querySelector('.shot-msg.l');
     const returnMessages = player2.randomAttack(player1.board);
     let x = returnMessages[0];
     let y = returnMessages[1];
@@ -86,8 +95,12 @@ class UI {
     cell.classList.add('shot');
     if (attack == 'miss') {
       cell.classList.add('miss');
+      attackText.innerHTML = 'Miss';
+      attackText.style.color = 'white';
     } else if (attack == 'hit') {
       cell.classList.add('hit');
+      attackText.innerHTML = 'Hit';
+      attackText.style.color = 'red';
       player1.board.board[x][y].hasShip.domTargets.push(cell);
     } else if (attack == 'sunk') {
       cell.classList.add('hit');
@@ -95,6 +108,8 @@ class UI {
       player1.board.board[x][y].hasShip.domTargets.forEach(e => {
         e.classList.add('sunk');
       })
+      attackText.innerHTML = 'Sunk';
+      attackText.style.color = 'darkred';
       this.showSunkMessage(player2, player1.board.board[x][y].hasShip.name)
       if (player1.board.isGameOver()) {
         return this.showGameOver(player1)
