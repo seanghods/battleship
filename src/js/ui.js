@@ -141,9 +141,9 @@ class UI {
     const message = document.querySelector('.text > h3')
     message.style.color = 'darkred';
     if (player == player1) {
-      message.innerHTML = `You have won battleship! All your opponents ships are sunk!`;
-    } else {
       message.innerHTML = `The opponent has sunk all of your ships! You have lost!`;
+    } else {
+      message.innerHTML = `You have won battleship! All your opponents ships are sunk!`;
     }
   }
 
@@ -161,6 +161,9 @@ class UI {
     boards.forEach(board => {
       board.innerHTML = '';
     })
+    const message = document.querySelector('.text > h3')
+    message.style.color = 'black';
+    message.innerHTML = 'Welcome to Battleship';
     this.setupBoards();
     this.setupClick();
   }
