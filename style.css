@@ -21,6 +21,7 @@ body {
 .text {
   text-align: center;
   padding: 25px;
+  border-bottom: 2px dotted black;
 }
 
 /* Header */
@@ -76,6 +77,9 @@ h3 {
     padding: 0;
     padding-bottom: 10px;
   }
+  .text {
+    border-bottom: 0px;
+  }
 }
 
 /* gameboards */
@@ -90,6 +94,15 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.shot-msg {
+  padding-top: 75px;
+  font-size: 25px;
+}
+
+.leftarea {
+  border-right: 2px dotted black;
 }
 
 .gameboard {
@@ -114,7 +127,15 @@ h3 {
   .gameboard {
       width: 40vw;
       height: 40vw;
-}
+  }
+  .leftarea {
+    border-right: 0;
+    border-top: 2px dotted black;
+  }
+  .shot-msg {
+    padding-top: 10px;
+    font-size: 25px;
+  }
 }
 
 .row {
