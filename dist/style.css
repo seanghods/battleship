@@ -1,4 +1,4 @@
-/*body {
+body {
   margin: 0;
   padding: 0;
 }
@@ -22,7 +22,7 @@
 }
 
 /* Header */
-/* 
+
 .header {
   display: flex;
   justify-content: center;
@@ -34,10 +34,10 @@
 .header h1 {
   margin: 0;
   padding: 0;
-} */
+}
 
 /* Footer */
-/* 
+
 .footer {
   display: flex;
   justify-content: center;
@@ -53,10 +53,10 @@ a {
   text-decoration: none;
   color: black;
   font-weight: bold;
-} */
+}
 
 /* gameboards */
-/* 
+
 .gameboards{
   flex: 1;
   display: flex;
@@ -154,4 +154,4 @@ a {
 button {
   padding: 5px 10px;
   border-radius: 10px;
-} */
+}

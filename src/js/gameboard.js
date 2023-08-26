@@ -1,6 +1,6 @@
 import {Ship} from './ship.js';
 
-export default class Gameboard {
+class Gameboard {
   constructor() {
     this.board = [];
     this.init();
@@ -85,7 +85,6 @@ export default class Gameboard {
     if (this.board[x][y].hasShip) {
       this.board[x][y].hasShip.hit();
       if (this.board[x][y].hasShip.sunk == true) {
-        this.isGameOver();
         return 'sunk';
       }
       return 'hit';
@@ -95,9 +94,10 @@ export default class Gameboard {
   isGameOver() {
     for (let i = 0; i < this.board.length; i++) {
       for (let j = 0; j < this.board[i].length; j++) {
-        if (this.board[i][j].hasShip && this.board[i][j].hasShip.isSunk == false) return false;
+        if (this.board[i][j].hasShip && this.board[i][j].hasShip.sunk == false) return false;
       }
     }
+    return true;
   }
   reset() {
     this.board = [];

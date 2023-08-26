@@ -4,7 +4,6 @@ class Player {
   constructor(name) {
     this.name = name;
     this.board = new Gameboard();
-    this.turn = false;
   }
   attack(x, y, gameboard) {
     if (gameboard.board[x][y].isShot) return false;
